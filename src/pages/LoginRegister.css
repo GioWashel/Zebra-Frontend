@@ -1,0 +1,108 @@
+.login-register-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.auth-form-container .forms {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.auth-form-container {
+  position: relative;
+  background: white;
+  align-items: center;
+  width: 30rem;
+  font-size: 1rem;
+  border-radius: 10px;
+  margin-top: 5rem;
+}
+
+.auth-form-container h1 {
+  color: black;
+  margin-bottom: 50px;
+}
+
+.login-button {
+  display: inline-block;
+  border-radius: 8px;
+  background-color: var(--light-green);
+  text-align: center;
+  font-size: 17px;
+  padding: 15px 18px;
+  width: 20rem;
+  transition: 0.3s;
+  cursor: pointer;
+  margin: 5px;
+  border: none;
+}
+
+.login-button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.login-button span:after {
+  content: "»";
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -15px;
+  transition: 0.5s;
+}
+.login-button:hover {
+  background-color: rgb(129, 235, 129);
+
+}
+
+.login-button:hover span {
+  padding-right: 15px;
+}
+
+.login-button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.link-button {
+  background: none;
+  color: black;
+  text-decoration: underline;
+  width: 100%;
+  display: block;
+  padding: 16px;
+  border: none;
+  font-size: 16px;
+  margin-bottom: 30px;
+}
+
+.link-button:hover {
+  color: blue;
+}
+
+ .form-input {
+  margin-bottom: 10px;
+  width: 20rem;
+  padding: 12px 18px;
+  font-size: 16px;
+  border-color: rgb(174, 174, 174);
+  background-color: white;
+  transition: all 0.3s;
+  border-width: 1px;
+}
+.form-input input:focus{
+  border-color: black;
+}
+.form-input input:hover {
+  border-color: black;
+}
+.form-input input:active {
+  border-color: black;
+}

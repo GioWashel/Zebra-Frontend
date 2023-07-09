@@ -1,0 +1,31 @@
+.nav-container {
+  margin-top: 20px;
+}
+.nav-container ul {
+  width: 100%;
+  text-align: center;
+  margin: auto;
+}
+.nav-container li {
+  list-style: none;
+  font-size: 20px;
+  text-align: center;
+  display: inline-block;
+  margin-right: 3rem;
+  transition: all 0.3s;
+
+}
+.links {
+  text-decoration: none;
+  color: white;
+  transition:  all 0.5s;
+  list-style: none;
+  text-align: center;
+
+}
+.links:hover {
+  text-decoration: underline;
+}
+.nav-container li:hover {
+  text-decoration: underline;
+}

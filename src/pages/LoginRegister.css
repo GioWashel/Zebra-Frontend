@@ -58,7 +58,7 @@
   transition: 0.5s;
 }
 .login-button:hover {
-  background-color: rgb(129, 235, 129);
+  background-color: var(--hookers-green)
 
 }
 
@@ -88,21 +88,23 @@
 }
 
  .form-input {
+  box-sizing: border-box;
   margin-bottom: 10px;
   width: 20rem;
   padding: 12px 18px;
   font-size: 16px;
-  border-color: rgb(174, 174, 174);
+  border: 2px solid rgb(208, 208, 208);
   background-color: white;
   transition: all 0.3s;
-  border-width: 1px;
+  border-width: 2px;
 }
-.form-input input:focus{
+
+.forms input:hover {
   border-color: black;
 }
-.form-input input:hover {
-  border-color: black;
+.forms input:focus {
+  border: 1px solid black;
 }
-.form-input input:active {
-  border-color: black;
+.forms input:active {
+  border: 1px solid black;
 }

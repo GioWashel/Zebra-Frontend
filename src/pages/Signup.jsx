@@ -16,7 +16,7 @@ export const Signup = () => {
             className="form-input"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
-            type="text"
+            type="email"
             placeholder="Email"
             required
           />

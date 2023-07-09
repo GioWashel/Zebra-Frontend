@@ -8,7 +8,7 @@ import { Home } from './pages/Home';
 import { NotFound } from './pages/NotFound';
 function App() {
   return (
-    <div className="App">
+    <div className="App" style={{background: "linear-gradient(#001427, #8E3B46)", width: "100%", height: "100%"}}>
       <Routes>
         <Route element={<Home/>} path='/'></Route>
         <Route element={<Login/>} path='/login'></Route>

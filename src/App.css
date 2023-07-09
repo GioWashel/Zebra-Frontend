@@ -2,6 +2,7 @@
 
 * {
   font-family: 'Roboto Slab', serif;
+  
 }
 .App {
   --hookers-green: #517664;
@@ -10,7 +11,8 @@
   --oxford-blue: #001427;
   --cordovon: #8E3B46;
   text-align: center;
-  background-image: linear-gradient(var(--oxford-blue), var(--cordovon));
+  min-height: 100vh;
+
 }
 html body{
   margin: 0;

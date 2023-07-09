@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import { Link } from "react-router-dom";
 import "./LoginRegister.css";
+import { Navbar } from "../components/navbar";
 export const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -10,13 +11,12 @@ export const Login = () => {
     <div className="login-register-container">
       <div className="auth-form-container">
         <h1 className="top-h1">Login</h1>
-
         <form className="forms">
           <input
             className="form-input"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
-            type="email"
+            type="text"
             placeholder="Email"
             required
           />
@@ -28,10 +28,13 @@ export const Login = () => {
             placeholder="Password"
             required
           />
-          <button className="login-button" type="submit">
-            <span>LOGIN</span>
-          </button>
+         <Link to="/dashboard">
+            <button className="login-button" type="submit">
+              <span>LOGIN</span>
+            </button>
+        </Link>
         </form>
+        
         <div>{errorMessage}</div>
         <Link to="/signup">
           <button className="link-button">

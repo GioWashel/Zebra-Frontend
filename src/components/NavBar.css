@@ -23,9 +23,9 @@
   text-align: center;
 
 }
-.links:hover {
+.links:focus{
   text-decoration: underline;
 }
-.nav-container li:hover {
+.nav-container li:focus {
   text-decoration: underline;
 }

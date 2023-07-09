@@ -9,7 +9,6 @@ export const Navbar = () => {
             <li><Link to="/about" className="links">About</Link></li>
             <li><Link to="/contact" className="links">Contact</Link></li>
         </ul>
-
     </nav>
     );
 };

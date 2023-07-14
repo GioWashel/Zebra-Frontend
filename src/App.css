@@ -2,14 +2,14 @@
 
 * {
   font-family: 'Roboto Slab', serif;
-  
-}
-.App {
   --hookers-green: #517664;
   --periwinkle: #D8DCFF;
   --light-green: #94FBAB;
   --oxford-blue: #001427;
   --cordovon: #8E3B46;
+  
+}
+.App {
   text-align: center;
   min-height: 100vh;
 

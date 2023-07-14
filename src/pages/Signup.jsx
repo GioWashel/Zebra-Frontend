@@ -1,115 +1,83 @@
-import {useEffect, useRef, useState} from "react";
+import {useState} from "react";
 import { Link } from "react-router-dom";
+import FormInput from "../components/FormInput";
 import "./LoginRegister.css";
-import axios from "axios";
+import { emphasize } from "@mui/material";
+
+
 export const Signup = () => {
 
-
-  const userRef = useRef();
-  const errRef = useRef();
-
-  //regex for validating the user inputed the email and password in correctly 
-  const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
-
-
-  //states for email
-  const [email, setEmail] = useState("");
-  const [validEmail, setValidEmail] = useState(false);
-  const [emailFocus, setEmailFocus] = useState(false);
-
-  //states for password
-  const [password, setPassword] = useState("");
-  const [validPassword, setValidPassword] = useState(false);
-  const [passwordFocus, setPasswordFocus] = useState(false);
-
-  //states for matching password
-  const [matchPassword, setMatchPassword] = useState("");
-  const [validMatch, setValidMatch] = useState(false);
-  const [matchFocus, setMatchFocus] = useState(false);
-
-  //states for errors
-  const [errorMessage, setErrorMessage] = useState("");
+  const[values, setValues] = useState({
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
+  const[email, setEmail] = useState("");
+  const[password, setPassword] = useState("");
   const [success, setSuccess] = useState(false);
-
-  
-  //validate user email 
-  /*
-  useEffect(() => {;
-    setValidEmail(USER_REGEX.test(email));
-  }, [email]);
-
-  */
-  //validate password and matching password
-  useEffect(() => {
-    const isValidPwd = PWD_REGEX.test(password);
-    setValidPassword(isValidPwd);
-    const match = password === matchPassword;
-    setValidMatch(match);
-  }, [password, matchPassword]);
-
-
-  //don't show error message when user is making changes
-  useEffect(() => {
-    setErrorMessage("");
-  }, [email, password, matchPassword]);
+  const inputs = [
+    {
+      id: 1,
+      name: "email",
+      type: "email",
+      placeholder: "Email",
+      errorMessage: "Please enter a valid email!",
+      required: true
+    },
+    {
+      id: 2,
+      name: "password",
+      type: "password",
+      placeholder: "Password",
+      errorMessage: "Password should be 8-20 characters and include at least 1 letter, 1 number and 1 special character!",
+      pattern: '^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$%^&*-])[a-zA-Z0-9!@#$%^&*-]{8,20}$',
+      required: true
+    },
+    {
+      id: 3,
+      name: "confirmPassword",
+      type: "password",
+      placeholder: "Confirm Password",
+      pattern: values.password,
+      errorMessage: "Passwords must match!"
+    }
+  ];
 
   const handleSubmit = (e) => {
     e.preventDefault();
-        // if button enabled with JS hack
-        
-        const user = {email, password};
-        const options = {
-            method: "POST",
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(user)};
-        fetch("http://localhost:8080/signup", options).then((res) => {console.log(res)});
-  }
+    const options = {
+        method: "POST",
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({email, password})}
+    fetch("http://localhost:8080/signup", options).then((res) => {console.log(res)});
+  };
+
+  const handleClick = () => {
+    if(success) {
+      <Link to="/dashboard"></Link>
+    }
+  };
+  const onChange =  (e) => {
+      setValues({...inputs, [e.target.name]: e.target.value});
+      if(e.target.name === "email") {
+        setEmail(e.target.value);
+      }
+      if(e.target.name === "password") {
+        setPassword(e.target.value)
+      }
+  };
   return (
     <div className="login-register-container">
       <div className="auth-form-container">
         <h1 className="top-h1">Signup</h1>
 
         <form className="forms" onSubmit={handleSubmit}>
-          <input
-            className="form-input"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            type="email"
-            placeholder="Email"
-            required
-            //aria-invalid={ validEmail ? "false" : "true"}
-            onFocus={() => setEmailFocus(true)}
-            onBlur={() => setEmailFocus(false)}
-          />
-          <input
-            className="form-input"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            type="password"
-            placeholder="Password"
-            required
-            aria-invalid={validPassword ? "false" : "true"}
-            onFocus={() => setPasswordFocus(true)}
-            onBlur={() => setPasswordFocus(false)}
-          />
-          <input
-            className="form-input"
-            value={matchPassword}
-            onChange={(e) => setMatchPassword(e.target.value)}
-            type="password"
-            placeholder="Enter password again"
-            required
-            aria-invalid={validMatch ? "false" : "true"}
-            onFocus={() => setMatchFocus(true)}
-            onBlur={() => setMatchFocus(false)}
-          />
-          <button className="login-button" type="submit">
+          {inputs.map((input) => (<FormInput key={input.id}{...input} value={values[input.name]} onChange={onChange} /> ))}
+          <button className="login-button" type="submit" onClick={() => {handleClick}}>
             <span>SUBMIT</span>
           </button>
-          <section>
-            <p ref={errRef} className={errorMessage ? "errorMessage" : "offscreen"} aria-live="assertive">{errorMessage}</p>
-          </section>
         </form>
+
         <Link to="/login">
           <button className="link-button">
             Have an account? Login

@@ -1,0 +1,42 @@
+.transaction {
+    display: flex;
+    background-color: var(--oxford-blue);
+    border: 1px solid var(--periwinkle);
+    font-size: 20px;
+    font-weight: 500;
+    width: 100%;
+    padding: 10px;
+    color: white;
+
+}  
+.transaction tr {
+    display: flex;
+    justify-content: space-evenly;
+}
+.transaction td{
+    text-align: center;
+    flex-flow: column wrap;
+    align-content: center;
+}
+.transaction:hover {
+    background-color: black;
+}
+#date {
+    margin-left: 50px;
+}
+#desc {
+    margin-left: 50px;
+    margin-right: 0px;
+    
+}
+#amount {
+    margin-left: 100px;
+    align-self: center;
+}
+#category {
+    pointer-events: none;
+    border-radius: 5px;
+    border: none;
+    background-color: var(--cordovon);
+    margin-left: 200px;
+}

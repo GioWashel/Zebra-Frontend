@@ -1,40 +1,33 @@
-import {Transaction} from "./Transaction";
 import { useState } from "react";
 import "./TransactionList.css";
 import data from "../data/Data.json";
 export const TransactionList =  (props) => {
-    const [transactions, setTransactions] = useState(data);
 
     return(
         <div className="transaction-container">
-
-             <div className="transaction-header">
-                <thead>
-                    <th>Select</th>
-                    <th>Date</th>
-                    <th>Description</th>
-                    <th>Amount</th>
-                    <th>Category </th>
-                </thead>
-            </div>
-            <div className="transaction-list">
-                {transactions.map((transaction) => {
-                    <Transaction 
-                    date={transaction.date}
-                    desc={transaction.description} 
-                    amount={transaction.amount}
-                    category={transaction.category}>
-                </Transaction>  
-                })}
-                <Transaction date="3/17/22" desc="mcdonald's"amount="20" category="fast food"></Transaction>
-                <Transaction date="3/18/22" desc="spotify"amount="5" category="subscriptions"></Transaction>
-                <Transaction date="3/19/22" desc="chillies"amount="30" category="restaurants"></Transaction>
-                <Transaction date="3/20/22" desc="starbucks"amount="7.59" category="drinks"></Transaction>
-                <Transaction date="3/21/22" desc="Kroger"amount="67.87" category="Supermarktes"></Transaction>
-            </div>
+            <table width="1000" className="transaction-list">
+            <tr>
+                <th width="200">Select</th>
+                <th width="200">Date</th>
+                <th width="200">Description</th>
+                <th width="200">Amount</th>
+                <th width="200">Category </th>
+            </tr>
+            {data.map((transaction) => {
+                return( 
+                <tr>
+                    <td id="checkbox"><input type="checkbox"/></td>
+                    <td id="date">{transaction.date}</td>
+                    <td id="desc">{transaction.description}</td>
+                    <td id="amount">{transaction.amount}</td>
+                    <td id="category"><button>{transaction.category}</button></td>
+                </tr>);
+                })
+            }
+            </table>
         </div>
-       
         
+
     );
     
 }

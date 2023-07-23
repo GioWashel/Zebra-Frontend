@@ -1,18 +1,18 @@
 import { useState } from "react";
 import "./TransactionList.css";
-import data from "../data/Data.json";
+import data from "../data/allTransactionData.json";
 
 
 export const TransactionList =  (props) => {
 
     const [transactions, setTransactions] = useState(data);
     const [filter, setFilter] = useState("");
-
+    const [categoryColor, setCategoryColor] = useState("");
 
 
     return(
         <div className="transaction-container">
-            <input onChange={(e) => setFilter(e.target.value)} id="input" placeholder="Transaction" type="text"/>
+            <input onChange={(e) => setFilter(e.target.value)} id="input" placeholder="Filter transactions" type="text"/>
             <table width="1000" className="transaction-list">
                 <tr>
                     <th width="200">Select</th>
@@ -23,7 +23,7 @@ export const TransactionList =  (props) => {
                 </tr>
                 {transactions.map((transaction) => {
                     if(transaction.description.includes(filter) ||
-                       transaction.amount.includes(filter) ||
+                       transaction.amount.toString().includes(filter) ||
                        transaction.date.includes(filter) ||
                         transaction.category.includes(filter)) {
                         return( 

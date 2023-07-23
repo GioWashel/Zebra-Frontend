@@ -12,6 +12,8 @@
     font-size: 20px;
     font-weight: 500;
     color: white;
+    overflow-y: scroll;
+    max-height: 300px;
 
 }  
 #table {

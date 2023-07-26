@@ -12,17 +12,17 @@
     font-size: 20px;
     font-weight: 500;
     color: white;
-    overflow-y: scroll;
     max-height: 300px;
 
 }  
-#table {
-    overflow:scroll;
+table {
+    overflow-y:scroll;
+    border-collapse: collapse;
 }
 td {
     width: 200px;
 }
-.transaction-list tr {
+tr {
     border: 2px solid var(--periwinkle);
 
 }

@@ -1,60 +1,49 @@
 [
 
     {
+        "id": 1,
         "date":  "3/23/23",
         "description": "Spotify",
         "amount": 7.99,
         "category": "Subscriptions"
     },
     {
+        "id": 2,
         "date":  "3/22/23",
         "description": "Mcdonalds",
         "amount": 23.43,
         "category": "Fast food"
     },
     {
+        "id": 3,
         "date":  "3/25/23",
         "description": "Shein",
         "amount": 76.43,
         "category": "Retail"
     },
     {
+        "id": 4,
         "date":  "3/26/23",
         "description": "Chili's",
         "amount": 19.32,
         "category": "Restaurants"
     },
     {
+        "id": 5,
         "date":  "3/22/23",
         "description": "Kroger",
         "amount": 40,
         "category": "Supermarkets/Groceries"
     },
     {
+        "id": 6,
         "date": "4/1/23",
         "description": "Hulu",
         "amount": 15.99,
         "category": "Subscriptions"
     },
     {
-        "date": "4/1/23",
-        "description": "Hulu",
-        "amount": 15.99,
-        "category": "Subscriptions"
-    },
-    {
-        "date": "4/1/23",
-        "description": "Hulu",
-        "amount": 15.99,
-        "category": "Subscriptions"
-    },
-    {
-        "date": "4/1/23",
-        "description": "Hulu",
-        "amount": 15.99,
-        "category": "Subscriptions"
-    },
-    {
+        "id": 7,
         "date": "4/1/23",
         "description": "Hulu",
         "amount": 15.99,

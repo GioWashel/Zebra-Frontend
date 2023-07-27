@@ -7,8 +7,12 @@ export const TransactionList =  () => {
 
     const [transactions, setTransactions] = useState(data);
     const [filter, setFilter] = useState("");
+
+    //hashmap for deleting transactions, key = id, value = row
     const transactionMap = new Map();
     const [selectedTransactions, setSelectedTransactions] = useState(transactionMap);
+
+    //if checkbox checked, add row to hashmap, else discard from hashmap
     const handleCheckbox = (id, e) => {
         if(e.target.checked) {
             selectedTransactions.set(id, transactions.filter((t) => {return t.id === id}));
@@ -18,9 +22,18 @@ export const TransactionList =  () => {
             selectedTransactions.delete(id)
             console.log(selectedTransactions);
        }
+       //if map isn't empty, then show deleteAll button
+       console.log(selectedTransactions.keys);
+    }
+    const handleDelete = () => {
+        setTransactions(transactions.filter((t) => {return !selectedTransactions.get(t.id)}));
+        return(<button></button>);
+    }
+    const handleAdd = () => {
+
     }
     return(
-        <div className="transaction-container">
+        <div className="transaction-list-container">
             <input onChange={(e) =>  setFilter(e.target.value)} id="input" placeholder="Filter transactions" type="text"/>
             <table width="1000" className="transaction-list">
                 <thead>
@@ -49,6 +62,11 @@ export const TransactionList =  () => {
                         }})}
                 </tbody>
             </table>
+            <div className="button-container">
+                <button id="delete" onClick={handleDelete}>Delete transaction</button>
+                <button id="add"> Add transaction</button>
+            </div>
+            
         </div>
     ); 
 }

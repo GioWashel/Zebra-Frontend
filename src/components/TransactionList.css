@@ -13,7 +13,6 @@
     font-weight: 500;
     color: white;
     max-height: 300px;
-
 }  
 table {
     overflow-y:scroll;
@@ -24,7 +23,6 @@ td {
 }
 tr {
     border: 2px solid var(--periwinkle);
-
 }
 .transaction-list tr:hover {
     background-color: black;

@@ -1,5 +1,5 @@
 import {useState} from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import FormInput from "../components/FormInput";
 import "./LoginRegister.css";
 import { emphasize } from "@mui/material";
@@ -49,12 +49,12 @@ export const Signup = () => {
         method: "POST",
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({email, password})}
-    fetch("http://localhost:8080/signup", options).then((res) => {console.log(res)});
+    fetch("http://localhost:8080/signup", options).then((res) => {console.log(res); setSuccess(!success)}).catch(err => {setSuccess(false)});
   };
 
   const handleClick = () => {
     if(success) {
-      <Link to="/dashboard"></Link>
+      <Navigate to="/dashboard"></Navigate>
     }
   };
   const onChange =  (e) => {

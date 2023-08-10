@@ -57,14 +57,18 @@ tr {
     height: 100%;;
     margin-top: 20px;
 }
-
+#category {
+    border: none;
+    color: gainsboro;
+    padding: 3px;
+    border-radius: 3px;
+}
 #delete, #add {
     color: white;
     border: none;
     padding: 10px;
     border-radius: 5px;
     width: 150px;
-
 }
 #delete {
    background-color: rgb(247, 44, 44);

@@ -6,27 +6,15 @@ export const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
-  const [user, setUser] = useState([]);
   const [success, setSuccess] = useState(false);
-  const [clicked, setClicked] = useState(false);
+  const [jwt, setJwt] = useState("", "jwt");
   const navigate = useNavigate();
 
 
-  useEffect(() => {
-    const options = {
-      method: "GET",
-      headers: { 'Content-Type': 'application/json' },
-    }
-    fetch("http://localhost:8080/users")
-    .then((res) => res.json())
-    .then((users) => {setUser(users.filter((user) => {
-      return ((user.email === email) && (user.password === password))}))});
-  }, [success, setSuccess]);
 
   const handleLogin = (e) => {
     e.preventDefault();
-    setClicked(true);
-    console.log(user);
+    <Navigate to='/dashboard'></Navigate>
   }
   return (
     <div className="login-register-container">

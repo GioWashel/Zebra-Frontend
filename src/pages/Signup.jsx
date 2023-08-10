@@ -47,9 +47,12 @@ export const Signup = () => {
     e.preventDefault();
     const options = {
         method: "POST",
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json',
+                   'Access-Control-Allow-Origin': '*'},
         body: JSON.stringify({email, password})}
-    fetch("http://localhost:8080/signup", options).then((res) => {console.log(res); setSuccess(!success)}).catch(err => {setSuccess(false)});
+    fetch("http://localhost:8080/signup", options)
+    .then((res) => {console.log(res); setSuccess(true)})
+    .catch(err => {setSuccess(false)});
   };
 
   const handleClick = () => {

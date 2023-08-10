@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
 import "./TransactionList.css";
-import data from "../data/allTransactionData.json";
 
 
-export const TransactionList =  () => {
-
-    const [transactions, setTransactions] = useState(data);
+export const TransactionList =  ({transaction_data, colors}) => {
+    
+    const [transactions, setTransactions] = useState(transaction_data);
     const [filter, setFilter] = useState("");
 
     //hashmap for deleting transactions, key = id, value = row
@@ -32,6 +31,9 @@ export const TransactionList =  () => {
     const handleAdd = () => {
 
     }
+    const setColor = (category) => {
+        return colors.get(category);
+    }
     return(
         <div className="transaction-list-container">
             <input onChange={(e) =>  setFilter(e.target.value)} id="input" placeholder="Filter transactions" type="text"/>
@@ -57,7 +59,7 @@ export const TransactionList =  () => {
                                     <td id="date">{transaction.date}</td>
                                     <td id="desc">{transaction.description}</td>
                                     <td id="amount">${transaction.amount}</td>
-                                    <td id="category"><button>{transaction.category}</button></td>
+                                    <td id="category"><button id="category" style={{backgroundColor: setColor(transaction.category)}} >{transaction.category}</button></td>
                                 </tr>); 
                         }})}
                 </tbody>
